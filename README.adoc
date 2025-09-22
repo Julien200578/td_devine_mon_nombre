@@ -43,6 +43,7 @@ TIP: Le nom d'un _crate_ respecte la notation https://doc.rust-lang.org/1.0.0/st
 🡆 Répondre ici 🡄
 //rustc .\devine_mon_nombre.rs
 //.\devine_mon_nombre.exe
+
 +
 NOTE: Le message `Hello world!` doit apparaître à l'écran.
 . Validez les changements avec `git`
@@ -50,6 +51,7 @@ NOTE: Le message `Hello world!` doit apparaître à l'écran.
 .Quelles commandes avez-vous tapées ?
 ....
 🡆 Répondre ici 🡄
+le bouton push
 ....
 
 === Lire un nombre
@@ -76,11 +78,15 @@ NOTE: Inspirez-vous de l'exemple fourni dans la https://doc.rust-lang.org/std/io
 +
 ....
 🡆 Répondre ici 🡄
+println!("Devine mon nombre !");
+println!("Saisissez votre proposition.");
+
 ....
 .. Quel est le type de retour de `read_line` ? Quel est son utilité ?
 +
 ....
 🡆 Répondre ici 🡄
+//Result<usize, std::io::Error>
 ....
 .. Utilisez la méthode https://doc.rust-lang.org/std/result/enum.Result.html#method.unwrap[`unwrap`] pour désencapsuler la chaîne saisie.
 .. Affichez le nombre saisi à l'écran.
@@ -99,6 +105,7 @@ Quels fichiers et répertoires ont été générés par cette commande ?
 +
 ....
 🡆 Répondre ici 🡄
+cargo.toml
 ....
 .. Déplacez `devine_mon_nombre.rs` vers `src/main.rs` en utilisant https://git-scm.com/docs/git-mv[`git mv`].
 .. Exécutez votre programme avec https://doc.rust-lang.org/cargo/commands/cargo-run.html[`cargo run`].
@@ -119,6 +126,7 @@ Que se passe-t'il lors du _build_ ?
 +
 ....
 🡆 Répondre ici 🡄
+il compile le fichier devine_mon_nombre
 ....
 . Générez un nombre aléatoire avec https://docs.rs/rand/0.8.4/rand/trait.Rng.html#method.gen_range[rand::Rng::gen_range]
 .. Conservez le résultat de l'appel de `rand::thread_rng().gen_range(1..101)` dans une variable et construisez le projet. Lisez attentivement l'erreur obtenue.
@@ -169,6 +177,7 @@ Cette seconde partie illustre l'usage des https://doc.rust-lang.org/book/appendi
 .Quelles commandes avez-vous tapées ?
 ....
 🡆 Répondre ici 🡄
+git tag -a v1.0.0 -m "TP 'Devine mon nombre !' — fin de la première partie (v1.0.0)"
 ....
 . Créez une https://git-scm.com/book/fr/v2/Les-branches-avec-Git-Les-branches-en-bref[_branche_] (_branch_) git dénommée `devtools` pour les développements de ce TP.
 À la fin du TP, cette branche sera fusionnée dans `main`.

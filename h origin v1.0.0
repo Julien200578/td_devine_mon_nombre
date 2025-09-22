@@ -1,0 +1,26 @@
+[33mtag v1.0.0[m
+Tagger: Julien Bingolles <julien.bignolles@ens.uvsq.fr>
+Date:   Mon Sep 22 22:12:02 2025 +0200
+
+TP 'Devine mon nombre !' — fin de la première partie (v1.0.0)
+
+[33mcommit 6ee4c3aac1c9a3f55dbd055dc1708e6c6b1a98c5[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;33mtag: [m[1;33mv1.0.0[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Julien Bingolles <julien.bignolles@ens.uvsq.fr>
+Date:   Mon Sep 15 15:43:40 2025 +0200
+
+    changemetn 1
+
+[1mdiff --git a/README.adoc b/README.adoc[m
+[1mindex 7002181..0f6ef05 100644[m
+[1m--- a/README.adoc[m
+[1m+++ b/README.adoc[m
+[36m@@ -41,7 +41,8 @@[m [mTIP: Le nom d'un _crate_ respecte la notation https://doc.rust-lang.org/1.0.0/st[m
+ .Quelles commandes avez-vous tapées ?[m
+ ....[m
+ 🡆 Répondre ici 🡄[m
+[31m-....[m
+[32m+[m[32m//rustc .\devine_mon_nombre.rs[m
+[32m+[m[32m//.\devine_mon_nombre.exe[m
+ +[m
+ NOTE: Le message `Hello world!` doit apparaître à l'écran.[m
+ . Validez les changements avec `git`[m
