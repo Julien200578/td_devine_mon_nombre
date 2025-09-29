@@ -1,53 +1,67 @@
-//! Petit jeu « Devine mon nombre ».
+//! # Devine mon nombre
 //!
-//! Le programme choisit un nombre aléatoire et l’utilisateur doit le deviner.
+//! Ce programme est un petit jeu où l’utilisateur doit deviner
+//! un nombre secret choisi aléatoirement par l’ordinateur.
+//!
+//! ## Fonctionnement
+//! - L’ordinateur choisit un nombre aléatoire entre 1 et 100.
+//! - L’utilisateur entre une valeur au clavier.
+//! - Le programme indique si le nombre est trop petit, trop grand,
+//!   ou si c’est le bon nombre.
 
+use console::style;       // pour colorer le texte
 use std::cmp::Ordering;
 use std::io;
 use rand::Rng;
-use console::style;
 
 /// Lit un entier depuis l’entrée standard.
-/// Retourne `Some(nombre)` si la conversion réussit, sinon `None`.
+///
+/// Retourne `Some(entier)` si la saisie est correcte, sinon `None`.
 ///
 /// # Examples
 ///
 /// ```
-/// use devine_mon_nombre::read_int_from_stdin;
-/// let _ = read_int_from_stdin();
+/// let n = read_int_from_stdin();
+/// assert!(n.is_none() || n.is_some());
 /// ```
-pub fn read_int_from_stdin() -> Option<u32> {
-    let mut input = String::new();
-    if io::stdin().read_line(&mut input).is_err() {
-        return None;
+fn read_int_from_stdin() -> Option<u32> {
+    let mut buffer = String::new();
+    if io::stdin().read_line(&mut buffer).is_ok() {
+        if let Ok(num) = buffer.trim().parse::<u32>() {
+            return Some(num);
+        }
     }
-    input.trim().parse::<u32>().ok()
+    None
 }
 
-/// Compare le nombre secret avec la saisie.
-pub fn get_ordering(secret_number: u32, input: u32) -> Ordering {
+/// Compare la saisie avec le nombre secret et retourne un `Ordering`.
+fn get_ordering(secret_number: u32, input: u32) -> Ordering {
     input.cmp(&secret_number)
 }
 
-/// Affiche un message adapté au résultat de la comparaison.
-pub fn display_result(comparison: Ordering) {
+/// Affiche le message correspondant au résultat de la comparaison.
+fn display_result(comparison: Ordering) {
     match comparison {
-        Ordering::Less => println!("{}", style("Trop petit !").blue()),
-        Ordering::Greater => println!("{}", style("Trop grand !").red()),
+        Ordering::Less => println!("Trop petit !"),
+        Ordering::Greater => println!("Trop grand !"),
         Ordering::Equal => println!("{}", style("Bravo, trouvé !").green().bold()),
     }
 }
 
-/// Retourne `true` si le nombre a été trouvé.
-pub fn has_found(comparison: Ordering) -> bool {
+/// Retourne `true` si le joueur a trouvé le nombre.
+fn has_found(comparison: Ordering) -> bool {
     matches!(comparison, Ordering::Equal)
 }
 
 fn main() {
+    // Afficher le titre en bleu
+    println!("{}", style("Devine mon nombre !").blue().bold());
+
     let secret_number = rand::thread_rng().gen_range(1..=100);
 
-    // Titre en bleu
-    println!("{}", style("Devinez le nombre !").blue().bold());
+    // Affiche uniquement en mode debug
+    #[cfg(debug_assertions)]
+    println!("(debug) Le nombre secret est : {secret_number}");
 
     loop {
         let input = read_int_from_stdin();
@@ -60,14 +74,12 @@ fn main() {
                 break;
             }
         } else {
-            println!("{}", style("Saisie incorrecte").yellow());
+            println!("Saisie incorrecte");
         }
     }
 }
 
-// -----------------------
-// TESTS UNITAIRES
-// -----------------------
+/// Module de tests unitaires
 #[cfg(test)]
 mod tests {
     use super::*;

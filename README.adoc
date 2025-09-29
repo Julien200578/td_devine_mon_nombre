@@ -183,15 +183,16 @@ git tag -a v1.0.0 -m "TP 'Devine mon nombre !' — fin de la première partie (v
 À la fin du TP, cette branche sera fusionnée dans `main`.
 +
 .Quelles commandes avez-vous tapées ?
-....
 🡆 Répondre ici 🡄
-....
+git branch devtools
+git checkout devtools
 . Utilisez https://github.com/rust-lang/rust-clippy[`cargo clippy`] pour vérifier votre code source et l'améliorer le cas échéant
 +
 .Quels types de remarques `clippy` a-t'il fait ?
-....
+
 🡆 Répondre ici 🡄
-....
+clippy fait généralement des remarques de style ou d’optimisation
+
 . _Factorisez_ votre programme en extrayant les fonctions suivantes
 +
 [horizontal]
@@ -232,11 +233,15 @@ git tag -a v1.0.0 -m "TP 'Devine mon nombre !' — fin de la première partie (v
 +
 ....
 🡆 Répondre ici 🡄
-....
+target/debug/
+
 . Lancez à nouveau une compilation avec Cargo mais en ajoutant l'option `--release`.
 Quelles différences voyez-vous ?
 +
-....
+- Les binaires sont placés dans `target/release/` au lieu de `target/debug/`.
+- Le binaire est beaucoup plus optimisé (plus rapide à l’exécution).
+- La taille du binaire peut être plus grande ou plus petite selon les optimisations appliquées.
+
 🡆 Répondre ici 🡄
 ....
 . Masquez le message concernant la valeur du nombre secret lorsque le programme n'est plus en phase de mise au point.
@@ -247,7 +252,8 @@ NOTE: Étudiez l'option https://doc.rust-lang.org/cargo/reference/profiles.html[
 .Que fait cette bibliothèque ?
 ....
 🡆 Répondre ici 🡄
-....
+La bibliothèque `console` fournit des utilitaires pour travailler avec la console : gestion des couleurs et styles de texte, contrôle du curseur, détection de la taille du terminal, saisie masquée, ainsi que des outils pratiques comme un chronomètre. Elle sert donc à améliorer l’affichage et les interactions en ligne de commande.
+
 . Modifiez votre programme pour que le titre soit affiché en bleu
 
 === Tests unitaires
@@ -267,22 +273,28 @@ IMPORTANT: pensez à importer le module englobant dans le module de test (`use s
 .Quelles commandes avez-vous tapées ?
 ....
 🡆 Répondre ici 🡄
-....
+git switch main
+git merge devtools
+
 . Créez une nouvelle étiquette pour cette version du projet
 +
 .Quelles commandes avez-vous tapées ?
 ....
 🡆 Répondre ici 🡄
-....
+git tag -a v1.1.0 -m "TP 'Devine mon nombre !' — version finale avec tests et console"
+
 . Synchronisez votre projet avec github et envoyez-y également les étiquettes
 +
 .Quelles commandes avez-vous tapées ?
 ....
 🡆 Répondre ici 🡄
-....
+git push origin main
+git push origin --tags
+
 . Supprimez la branche locale `devtools`
 +
 .Quelles commandes avez-vous tapées ?
 ....
 🡆 Répondre ici 🡄
-....
+git branch -d devtools
+
