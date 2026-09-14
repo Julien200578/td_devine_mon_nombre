@@ -40,7 +40,10 @@ TIP: Le nom d'un _crate_ respecte la notation https://doc.rust-lang.org/1.0.0/st
 +
 .Quelles commandes avez-vous tapées ?
 ....
-🡆 Répondre ici 🡄
+🡆 Répondre ici 
+rustc src/devine_mon_nombre.rs
+./devine_mon_nombre
+🡄
 ....
 +
 NOTE: Le message `Hello world!` doit apparaître à l'écran.
@@ -48,7 +51,10 @@ NOTE: Le message `Hello world!` doit apparaître à l'écran.
 +
 .Quelles commandes avez-vous tapées ?
 ....
-🡆 Répondre ici 🡄
+🡆 Répondre ici 
+git add src/devine_mon_nombre.rs
+git commit -m "Initialisation du projet avec Hello World"
+🡄
 ....
 
 === Lire un nombre
@@ -74,15 +80,20 @@ NOTE: Inspirez-vous de l'exemple fourni dans la https://doc.rust-lang.org/std/io
 .. Que signifie la notation `&mut` devant le nom de la variable dans l'appel à `read_line` ?
 +
 ....
-🡆 Répondre ici 🡄
+🡆 Répondre ici 
+indique un passage par référence mutable
+🡄
 ....
 .. Quel est le type de retour de `read_line` ? Quel est son utilité ?
 +
 ....
-🡆 Répondre ici 🡄
+🡆 Répondre ici 
+Type de retour : io::Result<usize>
+il indique si la lecture s'est bien passée (Ok) ou si une erreur d'entrée/sortie est survenue (Err)🡄
 ....
 .. Utilisez la méthode https://doc.rust-lang.org/std/result/enum.Result.html#method.unwrap[`unwrap`] pour désencapsuler la chaîne saisie.
-.. Affichez le nombre saisi à l'écran.
+.. Affichez le nombre saisi à l'écran
+78.
 
 NOTE: Pensez à valider régulièrement votre travail avec `git`. Ce ne sera plus précisé par la suite.
 
@@ -97,14 +108,18 @@ Pour utiliser ce crate, nous allons faire appel à Cargo pour gérer la dépenda
 Quels fichiers et répertoires ont été générés par cette commande ?
 +
 ....
-🡆 Répondre ici 🡄
+🡆 Répondre ici
+fichier : Cargo.tolm et repéretoire : src  
+🡄
 ....
 .. Déplacez `devine_mon_nombre.rs` vers `src/main.rs` en utilisant https://git-scm.com/docs/git-mv[`git mv`].
 .. Exécutez votre programme avec https://doc.rust-lang.org/cargo/commands/cargo-run.html[`cargo run`].
 Qu'est-ce qui a été généré dans le répertoire ?
 +
 ....
-🡆 Répondre ici 🡄
+🡆 Répondre ici 
+Le répertoire target/
+Le fichier Cargo.lock🡄
 ....
 . Ajoutez la bibliothèque externe https://crates.io/crates/rand[`rand`] dans le projet
 +
@@ -117,7 +132,8 @@ Vous allez donc éditer ce fichier.
 Que se passe-t'il lors du _build_ ?
 +
 ....
-🡆 Répondre ici 🡄
+🡆 Répondre ici 
+🡄
 ....
 . Générez un nombre aléatoire avec https://docs.rs/rand/0.8.4/rand/trait.Rng.html#method.gen_range[rand::Rng::gen_range]
 .. Conservez le résultat de l'appel de `rand::thread_rng().gen_range(1..101)` dans une variable et construisez le projet. Lisez attentivement l'erreur obtenue.
