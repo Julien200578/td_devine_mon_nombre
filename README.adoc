@@ -186,20 +186,26 @@ Cette seconde partie illustre l'usage des https://doc.rust-lang.org/book/appendi
 +
 .Quelles commandes avez-vous tapées ?
 ....
-🡆 Répondre ici 🡄
+🡆 Répondre ici
+git tag -a v1.0.0 -m "Version 1.0.0 : fin de la premiere partie du jeu"
+git push origin v1.0.0
+ 🡄
 ....
 . Créez une https://git-scm.com/book/fr/v2/Les-branches-avec-Git-Les-branches-en-bref[_branche_] (_branch_) git dénommée `devtools` pour les développements de ce TP.
 À la fin du TP, cette branche sera fusionnée dans `main`.
-+
++git switch -c devtools
 .Quelles commandes avez-vous tapées ?
 ....
-🡆 Répondre ici 🡄
+🡆 Répondre ici 
+git switch -c devtools
+🡄
 ....
 . Utilisez https://github.com/rust-lang/rust-clippy[`cargo clippy`] pour vérifier votre code source et l'améliorer le cas échéant
 +
 .Quels types de remarques `clippy` a-t'il fait ?
 ....
-🡆 Répondre ici 🡄
+🡆 Répondre ici
+ 🡄
 ....
 . _Factorisez_ votre programme en extrayant les fonctions suivantes
 +
@@ -240,13 +246,19 @@ Cette seconde partie illustre l'usage des https://doc.rust-lang.org/book/appendi
 . Dans quel répertoire Cargo place-t-il le résultat de la compilation ?
 +
 ....
-🡆 Répondre ici 🡄
+🡆 Répondre ici 
+target
+🡄
 ....
 . Lancez à nouveau une compilation avec Cargo mais en ajoutant l'option `--release`.
 Quelles différences voyez-vous ?
 +
 ....
-🡆 Répondre ici 🡄
+🡆 Répondre ici 
+1. Message de fin : Cargo affiche « Finished release profile [optimized] » au lieu de « Finished dev profile [unoptimized + debuginfo] ».
+2. Répertoire de sortie : le binaire est généré dans « target/release/ » (au lieu de « target/debug/ »).
+3. Optimisation : le compilateur applique le niveau maximal d'optimisation (opt-level = 3) pour accélérer l'exécution, et désactive les vérifications de débogage à l'exécution.
+🡄
 ....
 . Masquez le message concernant la valeur du nombre secret lorsque le programme n'est plus en phase de mise au point.
 +
@@ -255,7 +267,9 @@ NOTE: Étudiez l'option https://doc.rust-lang.org/cargo/reference/profiles.html[
 +
 .Que fait cette bibliothèque ?
 ....
-🡆 Répondre ici 🡄
+🡆 Répondre ici 
+La bibliothèque console permet de formater l'affichage dans le terminal (mettre du texte en couleur ou en gras) et de mieux contrôler les saisies utilisateur au clavier
+🡄
 ....
 . Modifiez votre programme pour que le titre soit affiché en bleu
 
