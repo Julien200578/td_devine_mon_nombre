@@ -89,7 +89,8 @@ indique un passage par référence mutable
 ....
 🡆 Répondre ici 
 Type de retour : io::Result<usize>
-il indique si la lecture s'est bien passée (Ok) ou si une erreur d'entrée/sortie est survenue (Err)🡄
+il indique si la lecture s'est bien passée (Ok) ou si une erreur d'entrée/sortie est survenue (Err)
+🡄
 ....
 .. Utilisez la méthode https://doc.rust-lang.org/std/result/enum.Result.html#method.unwrap[`unwrap`] pour désencapsuler la chaîne saisie.
 .. Affichez le nombre saisi à l'écran
@@ -119,7 +120,8 @@ Qu'est-ce qui a été généré dans le répertoire ?
 ....
 🡆 Répondre ici 
 Le répertoire target/
-Le fichier Cargo.lock🡄
+Le fichier Cargo.lock
+🡄
 ....
 . Ajoutez la bibliothèque externe https://crates.io/crates/rand[`rand`] dans le projet
 +
@@ -133,6 +135,7 @@ Que se passe-t'il lors du _build_ ?
 +
 ....
 🡆 Répondre ici 
+Cargo télécharge la dépendance rand et ses sous-dépendances depuis crates.io, les compile, crée/met à jour Cargo.lock, puis compile le binaire du projet.
 🡄
 ....
 . Générez un nombre aléatoire avec https://docs.rs/rand/0.8.4/rand/trait.Rng.html#method.gen_range[rand::Rng::gen_range]

@@ -7,7 +7,6 @@ fn main() {
 
     let nombre_secret = rand::thread_rng().gen_range(1..101);
 
-    // Ligne de triche/debug (tu peux la commenter avec // pour jouer pour de vrai)
     println!("Le nombre secret est : {}", nombre_secret);
 
     loop {
